@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProposedTalks",
+            "request": "launch",
+            "mainClass": "com.rayweb.proposedtalk.ProposedTalks",
+            "projectName": "proposedtalk"
+        }
+    ]
+}

@@ -18,7 +18,9 @@ dist: trusty
 sudo: required
 
 before_script:
-- mysql -e 'create database talks;'
+- mysql -u root -e 'CREATE DATABASE talks;'
+- mysql -u root -e "CREATE USER 'springuser'@'localhost' IDENTIFIED BY 'springuser';"
+- mysql -u root -e "GRANT ALL ON talks.* TO 'springuser'@'localhost';"
 
 script: mvn clean verify
 after_success:

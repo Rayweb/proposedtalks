@@ -1,5 +1,6 @@
 package com.rayweb.proposedtalk.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data    
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tag {
@@ -18,5 +19,6 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String value;
+    @Column(unique = true)
+    private String name;
 }

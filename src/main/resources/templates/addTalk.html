@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <section th:replace="layout/head"></section>
+</head>
+
+<body>
+    <div th:replace="layout/header :: header">&nbsp;</div>
+    <div id="content">
+        <h1>Propose a talk.</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1"></div>
+                    <div class="col-md-8 col-md-offset-1">
+                        <form class="card p-2">
+                            <div class="form-group">
+                                <label for="title">Suggested Title or Topic:</label>
+                                <input type="text" class="form-control" id="title" placeholder="Example : Intro to Spring boot..">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Can you give us a little bit of context?</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="I would like to know the basics of..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+
+                    <div class="col-md-2 col-md-offset-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+<div th:replace="layout/scripts :: scripts"></div>
+
+</html>

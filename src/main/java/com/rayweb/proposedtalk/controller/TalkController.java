@@ -4,6 +4,7 @@ import com.rayweb.proposedtalk.domain.Talk;
 import com.rayweb.proposedtalk.service.TalkService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,12 @@ public class TalkController {
     public TalkController(TalkService talkService){
         this.talkservice = talkService;
     }
+
+    @GetMapping(value = "/add")
+    public String addTalk(){
+        return "addTalk";
+    }
+
 
     @PostMapping(value = "/add")
     public ResponseEntity<Talk> addTalk(@RequestBody Talk request){

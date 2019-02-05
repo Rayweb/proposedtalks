@@ -5,7 +5,6 @@ import java.util.List;
 import com.rayweb.proposedtalk.domain.Tag;
 import com.rayweb.proposedtalk.service.TagService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/tags")
 public class TagController {
 
-    @Autowired
-    TagService tagService;
+    private final TagService tagService;
+
+
+    public TagController(TagService tagService) {
+        this.tagService = tagService;
+    }
 
     @GetMapping(value = "/")
     public String getPage(Model model) {
@@ -30,8 +33,7 @@ public class TagController {
 
     @PostMapping(value = "/add")
     public ResponseEntity<Tag> postMethodName(@RequestParam String topic) {
-        Tag tag = tagService.createTag(topic);
-        return ResponseEntity.ok(tag);
+        return ResponseEntity.ok(tagService.createTag(topic));
     }
 
 }

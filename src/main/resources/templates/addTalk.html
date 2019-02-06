@@ -23,7 +23,15 @@
                                 <label for="description">Can you give us a little bit of context?</label>
                                 <textarea class="form-control" id="description" rows="3" placeholder="I would like to know the basics of..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div id="selectedTopics">
+                                <div class="form-group">
+                                    <label for="title">Related topics to this talk:</label>
+                                    <th:block th:each="tag : ${tags}">
+                                        <button type="button" th:id="${tag.id}" th:value="${tag.name}" class="btn btn-primary" th:text="${tag.name}"></button>
+                                    </th:block>
+                                </div>
+                            </div>
+                            <button type="button" id="summit-talk" class="btn btn-info">Submit</button>
                         </form>
                     </div>
 

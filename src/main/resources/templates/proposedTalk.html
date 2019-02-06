@@ -8,6 +8,14 @@
 <body>
     <div th:replace="layout/header :: header">&nbsp;</div>
     <div id="content">
+        <h1 th:text="${proposedTalk.title}"></h1>
+        <span th:text="${proposedTalk.description}"></span>
+        <div>
+            <th:block th:each="tag : ${proposedTalk.tags}">
+                <button type="button" th:id="${tag.id}" th:value="${tag.name}" class="btn btn-primary"
+                    th:text="${tag.name}"></button>
+            </th:block>
+        </div>
     </div>
 </body>
 <div th:replace="layout/scripts :: scripts"></div>

@@ -12,21 +12,21 @@ function addButton(tag) {
 	$("#topics").append(topic);
 	$("#topic").val("");
 }
-function getTalk(){
+function getTalk() {
 	var title = $("#title").val();
 	var description = $("#description").val();
-	var topics = []; 
-	$("#selectedTopics .btn-success").each (function() {
+	var topics = [];
+	$("#selectedTopics .btn-success").each(function () {
 		var tag = {
-			id : this.id,
-			name : this.value
+			id: this.id,
+			name: this.value
 		}
 		topics.push(tag);
 	});
 	var proposedTalk = {
-		title : title,
-		description : description,
-		tags : topics
+		title: title,
+		description: description,
+		tags: topics
 	}
 	return proposedTalk;
 }
@@ -55,16 +55,16 @@ $(document).on("click", "#summit-talk", function (e) {
 	var url = "/proposedtalks/add"
 	$.ajax({
 		url: url,
-		contentType : 'application/json; charset=utf-8',
-		dataType : 'json',
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
 		data: JSON.stringify(proposedTalk),
 		type: 'POST',
 		error: function (request, status, error) {
 			setMessage(request.responseJSON.message, "danger");
 		},
 		success: function (data) {
-			debbuger;
-			console.log(data);
+			window.location.replace("/proposedtalks/" + data.id);
+			return false;
 		}
 	});
 });

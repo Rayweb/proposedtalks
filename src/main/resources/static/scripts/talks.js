@@ -1,5 +1,3 @@
-
-
 function setMessage(text, type) {
 	$('.alert').show();
 	$(".alert").text(text).css('font-weight', 'bold');
@@ -54,7 +52,7 @@ $(document).on("click", "#submit-topic", function (e) {
 $(document).on("click", "#summit-talk", function (e) {
 	e.stopPropagation();
 	var proposedTalk = getTalk();
-	var url = "/talks/add"
+	var url = "/proposedtalks/add"
 	$.ajax({
 		url: url,
 		contentType : 'application/json; charset=utf-8',

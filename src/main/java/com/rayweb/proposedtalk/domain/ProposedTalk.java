@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data    
 @NoArgsConstructor
 @AllArgsConstructor
-public class Talk {
+public class ProposedTalk {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
